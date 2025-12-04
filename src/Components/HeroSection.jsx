@@ -11,6 +11,8 @@ import { Link } from 'react-router-dom';
 
 
 
+
+
 const HeroSection = () => {
    const [cart, setCart] = useState([]);
    const [showCart, setShowCart] = useState(false);
@@ -185,7 +187,7 @@ const HeroSection = () => {
 
   {/* ================= MOBILE VIEW ================= */}
   {showMenu && (
-    <div className="lg:hidden flex flex-col pb-5 relative">
+    <div className="lg:hidden flex flex-col pb-5">
       {/* === Mobile Search === */}
       <div className="relative w-full">
         <input
@@ -195,7 +197,7 @@ const HeroSection = () => {
           type="text"
           placeholder="Order Your Package"
         />
-        <FaMagnifyingGlass className="absolute top-4 left-20 flex text-[14px] text-black/45" />
+        <FaMagnifyingGlass className="absolute top-4 left-28  text-[14px] text-black/45 hidden" />
       </div>
 
       {/* === Mobile Icons === */}
@@ -250,12 +252,12 @@ const HeroSection = () => {
             </div>
 
             {/* Right: Text */}
-            <div className="w-1/2 lg:h-full h-[120px] md:h-full flex flex-col justify-center items-start p-8 bg-gray-900/60 text-[#193B22] rounded">
-              <h3 className="text-2xl font-semibold mb-2">Hurray!!!</h3>
-              <p className="text-lg leading-relaxed font-[24px] text-black">
-                Get Special Offers <strong className='font-bold text-[24px]'>50%</strong>
+            <div className="w-1/2 lg:h-full h-[120px] md:h-full flex flex-col justify-center items-start p-8 bg-gray-900/60 text-[#193B22] rounded text-lg">
+              <h3 className=" font-semibold mb-2">Hurray!!!</h3>
+              <p className=" leading-relaxed text-black">
+                Get Special Offers <strong className='font-bold '>50%</strong>
               </p>
-              <button className='bg-[#FF0505] text-white w-[94px] h-[30px] rounded-full lg:mb-0 mb-11'>Order Now</button>
+              <a href="#food"><button className='bg-[#FF0505] text-white w-[94px] h-[30px] rounded-full lg:mb-0 mb-11'>Order Now</button></a>
             </div>
           </div>
         </Carousel.Item>
@@ -273,12 +275,12 @@ const HeroSection = () => {
             </div>
 
             {/* Left: Text */}
-            <div className="w-1/2 lg:h-full h-[120px] md:h-full flex flex-col justify-center items-start p-8 bg-gray-900/60 text-[#193B22] rounded">
-              <h3 className="text-2xl mb-2 font-bold text-[24px]">Hurray!!!</h3>
-              <p className="text-lg leading-relaxed">Get Special Offers <strong className='font-bold text-[24px] text-black'>50%</strong>
+            <div className="w-1/2 lg:h-full h-[120px] md:h-full flex flex-col justify-center items-start p-8 bg-gray-900/60 text-[#193B22] rounded text-lg">
+              <h3 className=" mb-2 font-bold ">Hurray!!!</h3>
+              <p className=" leading-relaxed">Get Special Offers <strong className='font-bold text-black'>50%</strong>
              
               </p>
-               <button className='bg-[#FF0505] text-white w-[94px] h-[30px] rounded-full lg:mb-0 mb-11'>Order Now</button>
+               <a href="#food"><button className='bg-[#FF0505] text-white w-[94px] h-[30px] rounded-full lg:mb-0 mb-11'>Order Now</button></a>
             </div>
           </div>
         </Carousel.Item>
@@ -296,12 +298,14 @@ const HeroSection = () => {
             </div>
 
             {/* Right: Text */}
-            <div className="w-1/2 lg:h-full h-[120px] md:h-full flex flex-col justify-center items-start p-8 bg-gray-900/60 text-[#193B22] rounded">
-              <h3 className="text-2xl font-bold mb-2">Hurray!!!</h3>
-              <p className="text-lg leading-relaxed text-black text-[24px]">
-                Get Special Offers <strong className='text-[24px] font-bold text-black'>50%</strong>
+            <div className="w-1/2 lg:h-full h-[120px] md:h-full flex flex-col justify-center items-start p-8 bg-gray-900/60 text-[#193B22] rounded text-lg">
+              <h3 className=" font-bold mb-2">Hurray!!!</h3>
+              <p className=" leading-relaxed text-black ">
+                Get Special Offers <strong className=' font-bold text-black'>50%</strong>
               </p>
-              <button className='bg-[#FF0505] text-white w-[94px] h-[30px] rounded-full lg:mb-0 mb-11'>Order Now</button>
+             <a href="#food"> <button className='bg-[#FF0505] text-white w-[94px] h-[30px] rounded-full lg:mb-0 mb-14'>Order Now</button></a> 
+             
+            
             </div>
           </div>
         </Carousel.Item>
@@ -309,7 +313,7 @@ const HeroSection = () => {
         </div>
     </div>
 
-    <article className='bg-white flex flex-col'>
+    <article id='food' className='bg-white flex flex-col'>
       <h2 className='font-bold text-[16px] flex justify-center pt-11'>Category</h2>
       <div className='flex justify-center gap-3'>
          <div className=''>
