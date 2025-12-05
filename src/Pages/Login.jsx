@@ -25,7 +25,7 @@ const Login = () => {
          placeholder='Email' />
         <input  className='w-[315px] h-[45px] border-2 border-gray-400 rounded-xl indent-3 italic font-bold text-[16px]' type="password" placeholder='Password' />
         <p className='font-bold text-[16px] ml-44'>Forgot Password</p>
-       <Link to='/Hero'>
+       <Link to='/hero'>
        <button className='italic bg-[#FFC400] text-white font-bold text-[20px] w-[315px] h-[45px] border-2 border-gray-400 rounded-xl '>Login</button></Link>
        <span className='font-bold text-[16px] text-black'>Don't have an account? sign up</span>
        <div className='flex items-center w-full'>

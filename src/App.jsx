@@ -5,6 +5,7 @@ import Login from './Pages/Login'
 import HeroSection from './Components/HeroSection'
 import Payment from './Pages/Payment'
 
+
 const App = () => {
   return (
    <Routes>
@@ -12,6 +13,7 @@ const App = () => {
     <Route path='/login' element={<Login />} />
     <Route path='/Hero' element={<HeroSection />}/>
     <Route path='/payment' element={<Payment />}/>
+    
    </Routes>
   )
 }
