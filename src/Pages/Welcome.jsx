@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom';
 
 
-const Home = () => {
+const Welcome = () => {
   return (
     <div className='bg-[url("https://media.istockphoto.com/id/510107751/photo/pizza-slice.webp?a=1&b=1&s=612x612&w=0&k=20&c=tbf9H-IVsty1yqyn5nvOsE5hOW9Gnlt343q9Gua4uec=")] bg-cover bg-center h-screen'>
       <div className='text-[#EEBE1F] flex flex-col justify-center items-center text-[48px] font-bold font-serif gap-5 pt-[240px]'>
@@ -19,4 +19,4 @@ const Home = () => {
   )
 }
 
-export default Home;
+export default Welcome;

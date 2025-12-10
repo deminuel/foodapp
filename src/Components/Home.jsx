@@ -7,17 +7,19 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import CardSection from './CardSection';
 import { IoClose } from 'react-icons/io5';
 import { Link } from 'react-router-dom';
+import { useAuth } from '../Context/AuthContext';
 
 
 
 
 
 
-const HeroSection = () => {
+const Home = () => {
    const [cart, setCart] = useState([]);
    const [showCart, setShowCart] = useState(false);
    const [showMenu, setShowMenu] = useState(false);
    const [search, setSearch] = useState();
+   const { user } = useAuth();
 
   // add to cart function
   const addToCart = (item) => {
@@ -60,21 +62,31 @@ const HeroSection = () => {
     <>
    <section className="bg-[#EEBE1F] flex flex-col">
   {/* ================= NAVBAR ================= */}
-  <nav className="flex justify-between p-4 bg-[#EEBE1F]">
+  <nav className="flex justify-between p-4 bg-[#EEBE1F] ">
     {/* === Left: Profile === */}
-    <div className="flex flex-[20%] items-center gap-3">
-      <img
+    
+     
+      <div className="flex flex-[20%] items-center gap-3">
+    {user? (
+      <div className="flex flex-[20%] items-center gap-3">
+     <img
         className="w-[50px] h-[50px] rounded-full"
         src={photo}
         alt="profile"
       />
-      <span className="text-[#193B22] font-bold text-[15px]">
+    <span className="text-[#193B22] font-bold text-[15px]">
         Hello{" "}
         <strong className="text-white font-[24px]">
-          AMOFE
+          {user}
         </strong>
-      </span>
+      </span> 
+      </div> 
+      ) : (
+       <Link to="/login">
+    <button className='w-24 h-8 bg-green-500 rounded-lg text-white ' >Login</button>
+    </Link>)}
     </div>
+    
 
     {/* === Middle: Search Bar (Desktop) === */}
     <div className="relative w-full">
@@ -183,6 +195,8 @@ const HeroSection = () => {
         className="lg:hidden text-2xl"
       />
     )}
+   
+    
   </nav>
 
   {/* ================= MOBILE VIEW ================= */}
@@ -372,4 +386,4 @@ const HeroSection = () => {
  
    
 
-export default HeroSection;
+export default Home;

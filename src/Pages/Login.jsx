@@ -1,12 +1,64 @@
-import React from 'react'
+import axios from 'axios';
+import React, { useEffect, useState } from 'react'
 
 
 import { FaApple } from 'react-icons/fa6';
 
 import { GrGoogle } from 'react-icons/gr';
-import { Link } from 'react-router-dom';
+import {  useNavigate } from 'react-router-dom';
+import { useAuth } from '../Context/AuthContext';
+import Spinner from '../Utils/Spinner';
+
 
 const Login = () => {
+ 
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
+  const { setUser } = useAuth();
+
+  
+
+
+
+
+
+  const handleSubmit = async (e) => {
+    setLoading(true)
+    e.preventDefault();
+
+  
+
+  try {
+    const res = await axios.post("https://dummyjson.com/auth/login",{
+      username,
+      password,
+   })
+  
+
+   if (res.status === 200 ){
+   
+    
+     console.log(res.data)
+     setUser(res.data.firstName)
+     setLoading(false)
+      navigate("/");
+   } else {
+    console.log("login failed")
+   }
+
+    
+  } catch (error) {
+    console.error("error", error)
+    setLoading(false)
+    
+  }
+}
+
+
+
+  
   return (
     <section className='bg-gradient-to-b from-white to-yellow-300 h-screen'>
         <div className='flex flex-col bg-[#EEBE1F] lg:h-[30vh] text-white p-10 gap-3' >
@@ -19,14 +71,20 @@ const Login = () => {
         </div>
         </div>
         
-        <form className='flex flex-col gap-2 justify-center items-center text-[#193B2299]'>
+        <form onSubmit={handleSubmit} className='flex flex-col gap-2 justify-center items-center text-[#193B2299]'>
           <span className='font-bold text-[20px] '>Log Into Your Account</span>
-        <input className='w-[315px] h-[45px] border-2 border-gray-400 rounded-xl indent-3 italic font-bold text-[16px]' type="email"
-         placeholder='Email' />
-        <input  className='w-[315px] h-[45px] border-2 border-gray-400 rounded-xl indent-3 italic font-bold text-[16px]' type="password" placeholder='Password' />
+        <input 
+        value={username}
+        onChange={(e) => setUsername(e.target.value)}
+        className='w-[315px] h-[45px] border-2 border-gray-400 rounded-xl indent-3 italic font-bold text-[16px]' type="text"
+         placeholder='Username' />
+        <input 
+        value={password}
+        onChange={(e) => setPassword(e.target.value)}
+        className='w-[315px] h-[45px] border-2 border-gray-400 rounded-xl indent-3 italic font-bold text-[16px]' type="password" placeholder='Password' />
         <p className='font-bold text-[16px] ml-44'>Forgot Password</p>
-       <Link to='/hero'>
-       <button className='italic bg-[#FFC400] text-white font-bold text-[20px] w-[315px] h-[45px] border-2 border-gray-400 rounded-xl '>Login</button></Link>
+      
+       <button className='italic bg-[#FFC400] text-white font-bold text-[20px] w-[315px] h-[45px] border-2 border-gray-400 rounded-xl '> { loading?<Spinner></Spinner> : "Login"}</button>
        <span className='font-bold text-[16px] text-black'>Don't have an account? sign up</span>
        <div className='flex items-center w-full'>
         <div className='flex-grow w-full border-t border-black'></div>
